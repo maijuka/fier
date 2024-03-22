@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="./confdef.xsl"?>
+<root>
+  <info>Randomization runs preferences for the Clired/Siren redescription mining tools.</info>
+  <section>
+    <name>Randomization</name>
+    <section>
+      <name>Data Input</name>
+      <parameter>
+        <name>traits_data</name>
+        <label>Traits data filename</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Complete filename for the traits data.</legend>
+        <length>310</length>
+        <default>
+          <value/>
+        </default>
+      </parameter>
+      <parameter>
+        <name>data_t</name>
+        <label>Traits data basename</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Basename of the file containing the traits data.</legend>
+        <length>50</length>
+        <default>
+          <value></value>
+        </default>
+      </parameter>
+      <parameter>
+        <name>ext_t</name>
+        <label>Traits data extension</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Extension of the file containing the traits data.</legend>
+        <length>10</length>
+        <default>
+          <value>.csv</value>
+        </default>
+      </parameter>
+      <parameter>
+        <name>count_vname</name>
+        <label>Name count variable</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Name for the variable that stores occurrence counts.</legend>
+        <length>50</length>
+        <default>
+          <value>COUNTS</value>
+        </default>
+      </parameter>
+      <parameter>
+        <name>select_red</name>
+        <label>Selection redescription</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Redescription used to select data rows.</legend>
+        <length>200</length>
+        <default>
+          <value/>
+        </default>
+      </parameter>
+      <parameter>
+        <name>agg_prec</name>
+        <label>Agg. precision</label>
+        <parameter_type>open</parameter_type>
+        <value_type>integer</value_type>
+        <legend>Precision of aggregated data.</legend>
+        <length>1</length>
+        <default>
+          <value>-1</value>
+        </default>
+      </parameter>
+    </section>
+    <section>
+      <name>Series</name>
+      <parameter>
+        <name>rnd_meth</name>
+        <label>Randomization meth.</label>
+        <parameter_type>multiple_options</parameter_type>
+        <value_type>text</value_type>
+        <legend>Randomization method used to generate data.</legend>
+        <default>
+          <value>0</value>
+        </default>
+        <options>
+          <value>none</value>
+          <value>permute_RHS</value>
+          <value>permute_LHS</value>
+          <value>permute_traits</value>
+          <value>shuffle_traits</value>
+          <value>swaprnd_occs</value>
+        </options>
+      </parameter>
+      <parameter>
+        <name>rnd_series_size</name>
+        <label>Randomization serie size</label>
+        <parameter_type>open</parameter_type>
+        <value_type>integer</value_type>
+        <legend>Number of runs per randomization series.</legend>
+        <length>4</length>
+        <default>
+          <value>10</value>
+        </default>
+      </parameter>
+      <parameter>
+        <name>rnd_seed</name>
+        <label>Randomization seed</label>
+        <parameter_type>open</parameter_type>
+        <value_type>integer</value_type>
+        <legend>Seed for the random number generator.</legend>
+        <length>4</length>
+        <default>
+          <value>-1</value>
+        </default>
+      </parameter>
+    </section>
+  </section>
+</root>

@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="./confdef.xsl"?>
+<root>
+  <info>Input/output preferences for the Clired/Siren redescription mining tools.</info>
+  <section>
+    <name>File Names</name>
+    <section>
+      <name>Data Input</name>
+      <parameter>
+        <name>LHS_data</name>
+        <label>LHS data filename</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>CORE Complete filename for the left hand side data.</legend>
+        <length>310</length>
+        <default>
+          <value/>
+        </default>
+      </parameter>
+      <parameter>
+        <name>RHS_data</name>
+        <label>RHS data filename</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>CORE Complete filename for the right hand side data.</legend>
+        <length>310</length>
+        <default>
+          <value/>
+        </default>
+      </parameter>
+      <parameter>
+        <name>data_rep</name>
+        <label>Data repertory</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Repertory where the data files are stored.</legend>
+        <length>250</length>
+        <default>
+          <value>__TMP_DIR__</value>
+        </default>
+      </parameter>
+      <parameter>
+        <name>data_l</name>
+        <label>LHS data basename</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Basename of the file containing the left hand side data.</legend>
+        <length>50</length>
+        <default>
+          <value>left</value>
+        </default>
+      </parameter>
+      <parameter>
+        <name>data_r</name>
+        <label>RHS data basename</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Basename of the file containing the right hand side data.</legend>
+        <length>50</length>
+        <default>
+          <value>right</value>
+        </default>
+      </parameter>
+      <parameter>
+        <name>ext_l</name>
+        <label>LHS data extension</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Extension of the file containing the left hand side data.</legend>
+        <length>10</length>
+        <default>
+          <value>.csv</value>
+        </default>
+      </parameter>
+      <parameter>
+        <name>ext_r</name>
+        <label>RHS data extension</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Extension of the file containing the right hand side data.</legend>
+        <length>10</length>
+        <default>
+          <value>.csv</value>
+        </default>
+      </parameter>
+      <parameter>
+        <name>NA_str</name>
+        <label>NA representation</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>CORE String representation for missing values (CSV format).</legend>
+        <length>10</length>
+        <default>
+          <value>nan</value>
+        </default>
+      </parameter>
+      <parameter>
+        <name>delim_in</name>
+        <label>Delimiter</label>
+        <parameter_type>single_options</parameter_type>
+        <value_type>text</value_type>
+        <legend>CORE Field delimiter (CSV format).</legend>
+        <default>
+          <value>0</value>
+        </default>
+        <options>
+          <value>(auto)</value>
+          <value>TAB</value>
+          <value>;</value>
+          <value>,</value>
+          <value>SPC</value>
+        </options>
+      </parameter>
+      <parameter>
+        <name>time_yearfirst</name>
+        <label>Time year first</label>
+        <parameter_type>single_options</parameter_type>
+        <value_type>text</value_type>
+        <legend>Whether to interpret the first value in an ambiguous 3-integer date as the year (dateutils).</legend>
+        <default>
+          <value>0</value>
+        </default>
+        <options>
+          <value>(auto)</value>
+          <value>yes</value>
+          <value>no</value>
+        </options>
+      </parameter>
+      <parameter>
+        <name>time_dayfirst</name>
+        <label>Time day first</label>
+        <parameter_type>single_options</parameter_type>
+        <value_type>text</value_type>
+        <legend>Whether to interpret the first value in an ambiguous 3-integer date as the day (dateutils).</legend>
+        <default>
+          <value>0</value>
+        </default>
+        <options>
+          <value>(auto)</value>
+          <value>yes</value>
+          <value>no</value>
+        </options>
+      </parameter>
+    </section>
+    <section>
+      <name>Results Output</name>
+      <parameter>
+        <name>result_rep</name>
+        <label>Results repertory</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>CORE Repertory where to save the results.</legend>
+        <length>250</length>
+        <default>
+          <value>__TMP_DIR__</value>
+        </default>
+      </parameter>
+      <parameter>
+        <name>out_base</name>
+        <label>Results data filename</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>CORE Name of the file where to store the results.</legend>
+        <length>50</length>
+        <default>
+          <value>results</value>
+        </default>
+      </parameter>
+      <parameter>
+        <name>ext_queries</name>
+        <label>Queries extension</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Extension of the file where to save the queries.</legend>
+        <length>10</length>
+        <default>
+          <value>.queries</value>
+        </default>
+      </parameter>
+      <parameter>
+        <name>ext_support</name>
+        <label>Supports extension</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Extension of the file where to save the supports.</legend>
+        <length>10</length>
+        <default>
+          <value>.supports</value>
+        </default>
+      </parameter>
+      <parameter>
+        <name>ext_log</name>
+        <label>Log data extension</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Extension of the file where to save log traces.</legend>
+        <length>10</length>
+        <default>
+          <value>.txt</value>
+        </default>
+      </parameter>
+      <parameter>
+        <name>queries_file</name>
+        <label>Queries filename</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Complete filename for the queries.</legend>
+        <length>310</length>
+        <default>
+          <value/>
+        </default>
+      </parameter>
+      <parameter>
+        <name>queries_named_file</name>
+        <label>Named queries filename</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Complete filename for the queries with variable names.</legend>
+        <length>310</length>
+        <default>
+          <value/>
+        </default>
+      </parameter>
+      <parameter>
+        <name>support_file</name>
+        <label>Support filename</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Complete filename for the support.</legend>
+        <length>310</length>
+        <default>
+          <value/>
+        </default>
+      </parameter>
+    </section>
+  </section>
+  <section>
+    <name>Advanced</name>
+    <section>
+      <name>File Names</name>
+      <parameter>
+        <name>series_id</name>
+        <label>Series ID</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Series ID to replace __SID__ in filenames.</legend>
+        <default>
+          <value/>
+        </default>
+      </parameter>
+      <parameter>
+        <name>logfile</name>
+        <label>Logfile</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>CORE File to log. + means generate filename from queries output file. - means stdout.</legend>
+        <default>
+          <value>-</value>
+        </default>
+      </parameter>
+      <parameter>
+        <name>pairs_store</name>
+        <label>Pairs store filename</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Name of the file where to store initial pairs.</legend>
+        <length>250</length>
+        <default>
+          <value/>
+        </default>
+      </parameter>
+      <parameter>
+        <name>pairs_traces</name>
+        <label>Pairs traces</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Name of the file where to log the traces of initial pairs generation.</legend>
+        <length>250</length>
+        <default>
+          <value/>
+        </default>
+      </parameter>
+      <parameter>
+        <name>queries_in</name>
+        <label>Input query files</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Path (relative to the configuration file, or absolute), name or suffix (to build the filename from out_base or previous path/name, starting with a + sign) for files containing queries.</legend>
+        <length>310</length>
+        <default>
+          <value/>
+        </default>
+      </parameter>
+      <parameter>
+        <name>queries_out</name>
+        <label>Output query files</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Path (relative to the configuration file, or absolute), name or suffix (to build the filename from out_base or previous path/name, starting with a + sign) for files where to store queries.</legend>
+        <length>310</length>
+        <default>
+          <value/>
+        </default>
+      </parameter>
+    </section>
+    <section>
+      <name>Extra</name>
+      <parameter>
+        <name>mask_vars_LHS</name>
+        <label>Mask for LHS variables</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Mask for enabling or disabling LHS variables, overriding any info in the data file.</legend>
+        <length>10000</length>
+        <default>
+          <value/>
+        </default>
+      </parameter>
+      <parameter>
+        <name>mask_vars_RHS</name>
+        <label>Mask for RHS variables</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Mask for enabling or disabling RHS variables, overriding any info in the data file.</legend>
+        <length>10000</length>
+        <default>
+          <value/>
+        </default>
+      </parameter>
+      <parameter>
+        <name>mask_rows</name>
+        <label>Mask for rows</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Mask for enabling or disabling rows, overriding any info in the data file.</legend>
+        <length>100000</length>
+        <default>
+          <value/>
+        </default>
+      </parameter>
+      <parameter>
+        <name>activated_extensions</name>
+        <label>Activated extensions</label>
+        <parameter_type>multiple_options</parameter_type>
+        <value_type>text</value_type>
+        <legend>Data extensions to activate.</legend>
+        <default>0</default>
+        <options>
+          <value>(auto)</value>
+          <value>geoplus</value>
+        </options>
+      </parameter>
+      <parameter>
+        <name>extensions_rep</name>
+        <label>Extensions repertory</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Repertory where extension data files are stored.</legend>
+        <length>250</length>
+        <default>
+          <value>__TMP_DIR__</value>
+        </default>
+      </parameter>
+      <parameter>
+        <name>extensions_names</name>
+        <label>Extensions data filenames</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Keys and names of the extension data files.</legend>
+        <length>250</length>
+        <default>
+          <value/>
+        </default>
+      </parameter>
+      <parameter>
+        <name>fields_vdefs</name>
+        <label>Files defining vars fields</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Files defining custom variables fields.</legend>
+        <length>250</length>
+        <default>
+          <value/>
+        </default>
+      </parameter>
+      <parameter>
+        <name>fields_rdefs</name>
+        <label>Files defining reds fields</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Files defining custom redescriptions fields.</legend>
+        <length>250</length>
+        <default>
+          <value/>
+        </default>
+      </parameter>
+      <parameter>
+        <name>actions_rdefs</name>
+        <label>Files defining reds actions</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Files defining custom redescriptions actions.</legend>
+        <length>250</length>
+        <default>
+          <value/>
+        </default>
+      </parameter>
+    </section>
+  </section>
+</root>

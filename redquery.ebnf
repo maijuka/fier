@@ -1,0 +1,60 @@
+(* redescription queries in EBNF *)
+QUERIES = @+:query {LB @+:query}* {LB}* ;
+LB = ?/\n/? ;
+query = disjunction:disjunction | conjunction:conjunction | literal:literal ;
+query = [ mass_neg:neg ] op_parenthesis conjunction:conjunction cl_parenthesis ;
+query = [ mass_neg:neg ] op_parenthesis disjunction:disjunction cl_parenthesis ;
+disjunction = @+:disj_item { disj_op >> @+:disj_item }+ ;
+conjunction = @+:conj_item { conj_op @+:conj_item }+ ;
+disj_item = literal | ( [ mass_neg:neg ] op_parenthesis conjunction:conjunction cl_parenthesis ) ;
+conj_item = literal | ( [ mass_neg:neg ] op_parenthesis disjunction:disjunction cl_parenthesis ) ;
+literal = categorical_literal:categorical_literal | realvalued_literal:realvalued_literal | anonymous_literal:anonymous_literal | boolean_literal:boolean_literal | constant_literal:constant_literal  ;
+categorical_literal = ( op_braket variable_name:variable_name cat_test:cat_test >> categories:categories cl_braket ) ;
+categorical_literal = ( variable_name:variable_name cat_test:cat_test >> categories:categories ) ;
+categorical_literal = neg:neg ( op_braket variable_name:variable_name cat_true >> categories:categories cl_braket ) ;
+categorical_literal = neg:neg ( variable_name:variable_name cat_true >> categories:categories ) ;
+anonymous_literal = [ neg:neg ] ( "?" variable_name:variable_name ) ;
+constant_literal = ( constant_bangs:constant_bangs ) ;
+realvalued_literal = [ neg:neg ] ( op_braket ( 
+		   ( [ lower_bound:variable_value lth >> ] variable_name:variable_name lth >> upper_bound:variable_value ) | 
+		   ( [ upper_bound:variable_value gth >> ] variable_name:variable_name gth >> lower_bound:variable_value ) | 
+		   ( lower_bound:variable_value lth >> variable_name:variable_name ) |
+		   ( upper_bound:variable_value gth >> variable_name:variable_name )
+		   ) cl_braket ) ;
+realvalued_literal = [ neg:neg ] ( 
+		   ( [ lower_bound:variable_value lth >> ] variable_name:variable_name lth >> upper_bound:variable_value ) | 
+		   ( [ upper_bound:variable_value gth >> ] variable_name:variable_name gth >> lower_bound:variable_value ) | 
+		   ( lower_bound:variable_value lth >> variable_name:variable_name ) |
+		   ( upper_bound:variable_value gth >> variable_name:variable_name )
+		   ) ;
+boolean_literal = [ neg:neg ] ( op_braket variable_name:variable_name cl_braket ) ;
+boolean_literal = [ neg:neg ] ( variable_name:variable_name ) ;
+variable_name = ( STRING | ?/v\d+/? ) ;
+constant_bangs = ?/![!]+/? ;
+categories = ( category:category | op_curl catlist:catlist cl_curl ) ;
+catlist = @+:category { list_sep >> @+:category }* ;
+category = (STRING | ?/\d+([.])?\d*/? ) ;
+variable_value = ( numerical_value | time_value ) ;
+numerical_value = NUMBER ;
+time_value = ?/@([^<>=!\[\]\(\)\{\}&|\n\t\u2227\u2228\u2264\u2265\u2208\u2209\u2260\u00ac]*[^<>=!\[\]\(\)\{\}&|,\n\t\u2227\u2228\u2264\u2265\u2208\u2209\u2260\u00ac ])?/? ; 
+NUMBER = ?/[+-]?\d+([.])?\d*([Ee][-+]?\d+)?/? ;
+STRING = ?/[^<>=!\[\]\(\)\{\}\?&|,\n\t\u2227\u2228\u2264\u2265\u2208\u2209\u2260\u00ac \d]+([^<>=!\[\]\(\)\{\}&|,\n\t\u2227\u2228\u2264\u2265\u2208\u2209\u2260\u00ac]*[^<>=!\[\]\(\)\{\}&|,\n\t\u2227\u2228\u2264\u2265\u2208\u2209\u2260\u00ac ])?/? ;
+op_parenthesis = "(" ;
+cl_parenthesis = ")" ;
+op_braket = "[" ;
+cl_braket = "]" ;
+op_curl = "{" ;
+cl_curl = "}" ;
+list_sep = "," ;
+conj_op = ( "&" | "\u2227" ) ;
+disj_op = ( "|" | "\u2228" );
+lth = ( "<" | "\u2264" ) ;
+gth = ( ">" | "\u2265" ) ;
+cat_test = ( cat_true:cat_true | cat_false:cat_false) ;
+cat_true = ( eq | in) ;
+cat_false = ( neq | nin) ;
+eq = "=" ;
+in = "\u2208" ;
+neq = ( "!=" | "\u2260" ) ;
+nin = "\u2209" ;
+neg = ( "!" | "\u00ac" ) ;

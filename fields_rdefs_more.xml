@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <field_spec>
+    <name>accI_mean</name>
+    <expression>2./((1./(all:acc:))+(1./(all:ratio:I)))</expression>
+    <format>.2f</format>
+  </field_spec>
+  <field_spec>
+    <name>accU_mean</name>
+    <expression>2./((1./(all:acc:))+(1./(all:ratio:U)))</expression>
+    <format>.2f</format>
+  </field_spec>
+</root>

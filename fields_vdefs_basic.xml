@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <field_spec>
+    <name>cohesion</name>
+    <expression>:extra:cohesion</expression>
+    <format>.2f</format>
+  </field_spec>
+  <fieldlist>
+    <name>gui</name>
+    <field><name>:extra:name</name></field>
+    <field><name>:type:</name></field>
+    <field><name>:missing:</name><if>wmissing</if></field>
+    <field><name>:density:</name><if>wtype_B</if></field>
+    <field><name>:categories:</name><if>wtype_C</if></field>
+    <field><name>:min:</name><if>wtype_N</if></field>
+    <field><name>:max:</name><if>wtype_N</if></field>
+    <field><name>cohesion</name><if>wxtr_geoplus</if></field>
+  </fieldlist>
+  <fieldlist>
+    <name>statsactive</name>
+    <field><name>active:len:rids</name></field>
+    <field><name>active:sum:vect</name><if>wtype_B</if></field>
+    <field><name>active:set:vals</name><if>wtype_C</if></field>
+    <field><name>active:min:vect</name><if>wtype_N</if></field>
+    <field><name>active:max:vect</name><if>wtype_N</if></field>
+  </fieldlist>
+</root>

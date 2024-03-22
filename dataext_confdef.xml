@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="./confdef.xsl"?>
+<root>
+  <info>Data extensions preferences for the Clired/Siren redescription mining tools.</info>
+  <section>
+    <name>Extensions</name>
+    <section>
+      <name>geoplus</name>
+      <parameter>
+        <name>hgrid_percentile</name>
+        <label>H grid percentile</label>
+        <parameter_type>range</parameter_type>
+        <value_type>float</value_type>
+        <legend>Percentile to determine grid height.</legend>
+        <range_min>0</range_min>
+        <range_max>100</range_max>
+        <default>
+          <value>90</value>
+        </default>
+      </parameter>
+      <parameter>
+        <name>wgrid_percentile</name>
+        <label>W grid percentile</label>
+        <parameter_type>range</parameter_type>
+        <value_type>float</value_type>
+        <legend>Factor to multiply grid width.</legend>
+        <range_min>0</range_min>
+        <range_max>100</range_max>
+        <default>
+          <value>90</value>
+        </default>
+      </parameter>
+      <parameter>
+        <name>after_cut</name>
+        <label>Draw tighter borders</label>
+        <parameter_type>boolean</parameter_type>
+        <legend>Draw tighter border between distant sites.</legend>
+        <default>
+          <value>1</value>
+        </default>
+      </parameter>
+      <parameter>
+        <name>dst_type</name>
+        <label>Distance type</label>
+        <parameter_type>single_options</parameter_type>
+        <value_type>text</value_type>
+        <legend>Distance to use when computing the grid</legend>
+        <default>
+          <value>0</value>
+        </default>
+        <options>
+          <value>globe</value>
+          <value>flat</value>
+        </options>
+      </parameter>
+    </section>
+  </section>
+</root>

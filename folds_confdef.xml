@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="./confdef.xsl"?>
+<root>
+  <info>Cross-fold tests preferences for the Clired/Siren redescription mining tools.</info>
+  <section>
+    <name>Folds</name>
+    <section>
+      <name>Automatic splits</name>
+      <parameter>
+        <name>nb_folds</name>
+        <label>Nb folds</label>
+        <parameter_type>range</parameter_type>
+        <value_type>integer</value_type>
+        <legend>Number of parts the data should be split into.</legend>
+        <range_min>2</range_min>
+        <range_max>20</range_max>
+        <default>
+          <value>5</value>
+        </default>
+      </parameter>
+      <parameter>
+        <name>coo_dim</name>
+        <label>Strips direction</label>
+        <parameter_type>open</parameter_type>
+        <value_type>integer</value_type>
+        <legend>Coordinate to cut the strips along (-1 and -2 for cut along longitudes and latitudes, respectively).</legend>
+        <length>3</length>
+        <default>
+          <value>-1</value>
+        </default>
+      </parameter>
+      <parameter>
+        <name>grain</name>
+        <label>Granularity</label>
+        <parameter_type>open</parameter_type>
+        <value_type>float</value_type>
+        <legend>Granularity of the cut (lower means narrower strips).</legend>
+        <length>3</length>
+        <default>
+          <value>1</value>
+        </default>
+      </parameter>
+      <parameter>
+        <name>folds_col</name>
+        <label>Variable</label>
+        <parameter_type>open</parameter_type>
+        <value_type>text</value_type>
+        <legend>Name of the variable to use for splitting the data into subsets.</legend>
+        <length>100</length>
+        <default>
+          <value></value>
+        </default>
+      </parameter>
+    </section>
+  </section>
+</root>

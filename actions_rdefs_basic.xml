@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <actionlist>
+    <name>redundant</name>
+    <action what="filterPairs">
+      <reverse><cstr>redundancy_reverse</cstr></reverse>
+      <max>0</max>
+      <comparison>
+        <value type="pair">active:<cstr>redundancy_how</cstr>:<cstr>redundancy_which</cstr></value>
+        <operator><![CDATA[>]]></operator>
+        <value><cstr>redundancy_threshold</cstr></value>
+      </comparison>
+    </action>
+  </actionlist>
+  <actionlist>
+    <name>_nextge</name>
+    <action what="filterSingle">
+      <comparison>
+        <value type="item">:nbAvC:</value>
+        <operator><![CDATA[=]]></operator>
+        <value type="int">0</value>
+      </comparison>
+    </action>
+    <action what="sort" reverse="true">
+      <value type="item">:acc:</value>
+    </action>
+    <action what="cut">
+      <max><cstr>batch_cap</cstr></max>
+      <direction>0</direction>
+      <comparison><value type="item">:acc:</value></comparison>
+    </action>
+  </actionlist>
+  <actionlist>
+    <name>_tree_rectangles</name>
+    <action what="filterPairs">
+      <max>0</max>
+      <value type="pair">:sameRectangles:</value>
+    </action>
+  </actionlist>
+  <actionlist>
+    <name>_partial</name>
+    <action what="filterSingle" reverse="true">
+      <comparison>
+        <value type="item">:len:O</value>
+        <operator><![CDATA[>=]]></operator>
+        <value><cstr>min_itm_out</cstr></value>
+      </comparison>
+      <comparison>
+        <value type="item">:len:I</value>
+        <operator><![CDATA[>=]]></operator>
+        <value><cstr>min_itm_in</cstr></value>
+      </comparison>
+      <comparison>
+        <value type="item">:pval:</value>
+        <operator><![CDATA[<=]]></operator>
+        <value><cstr>max_fin_pval</cstr></value>
+      </comparison>
+    </action>
+    <action what="sort" reverse="true">
+      <value type="item">:acc:</value>
+      <value type="item" flip="true">BOTH:len:q</value>
+      <value type="item" flip="true">:diffLengthQs:</value>
+    </action>
+    <action what="filterPairs">
+      <max>0</max>
+      <value type="pair">:superceding:</value>
+    </action>
+    <action what="cut">
+      <max><cstr>batch_out</cstr></max>
+      <direction>1</direction>
+      <comparison><value type="item">:acc:</value></comparison>
+      <comparison><value type="item" flip="true">BOTH:len:q</value></comparison>
+      <comparison><value type="item" flip="true">:diffLengthQs:</value></comparison>
+    </action>
+  </actionlist>
+  <actionlist>
+    <name>_final</name>
+    <action what="filterSingle" reverse="true">
+      <comparison>
+        <value type="item">BOTH:len:q</value>
+        <operator><![CDATA[>=]]></operator>
+        <value><cstr>min_fin_var</cstr></value>
+      </comparison>
+      <comparison>
+        <value type="item">:len:O</value>
+        <operator><![CDATA[>=]]></operator>
+        <value><cstr>min_fin_out</cstr></value>
+      </comparison>
+      <comparison>
+        <value type="item">:len:I</value>
+        <operator><![CDATA[>=]]></operator>
+        <value><cstr>min_fin_in</cstr></value>
+      </comparison>
+      <comparison>
+        <value type="item">:acc:</value>
+        <operator><![CDATA[>=]]></operator>
+        <value><cstr>min_fin_acc</cstr></value>
+      </comparison>
+      <comparison>
+        <value type="item">:pval:</value>
+        <operator><![CDATA[<=]]></operator>
+        <value><cstr>max_fin_pval</cstr></value>
+      </comparison>
+    </action>
+    <action what="sort" reverse="true">
+      <value type="item">:acc:</value>
+      <value type="item" flip="true">BOTH:len:q</value>
+      <value type="item" flip="true">:diffLengthQs:</value>
+    </action>
+    <action what="filterPairs">
+      <max>0</max>
+      <value type="pair">:superceding:</value>
+    </action>
+  </actionlist>
+  <actionlist>
+    <name>_fim</name>
+    <action what="sort" reverse="true">
+      <value type="item" flip="true">:len:O</value>
+      <value type="item" flip="true">BOTH:len:q</value>
+    </action>
+  </actionlist>
+  <actionlist>
+    <name>_fimg</name>
+    <action what="filterSingle" reverse="true">
+      <comparison>
+        <value type="item">:len:O</value>
+        <operator><![CDATA[>=]]></operator>
+        <value><cstr>min_itm_out</cstr></value>
+      </comparison>
+      <comparison>
+        <value type="item">:len:I</value>
+        <operator><![CDATA[>=]]></operator>
+        <value><cstr>min_itm_in</cstr></value>
+      </comparison>
+      <comparison>
+        <value type="item">:pval:</value>
+        <operator><![CDATA[<=]]></operator>
+        <value><cstr>max_fin_pval</cstr></value>
+      </comparison>
+      <comparison>
+        <value type="item">BOTH:len:q</value>
+        <operator><![CDATA[>=]]></operator>
+        <value><cstr>min_fin_var</cstr></value>
+      </comparison>
+      <comparison>
+        <value type="item">:len:O</value>
+        <operator><![CDATA[>=]]></operator>
+        <value><cstr>min_fin_out</cstr></value>
+      </comparison>
+      <comparison>
+        <value type="item">:len:I</value>
+        <operator><![CDATA[>=]]></operator>
+        <value><cstr>min_fin_in</cstr></value>
+      </comparison>
+      <comparison>
+        <value type="item">:acc:</value>
+        <operator><![CDATA[>=]]></operator>
+        <value><cstr>min_fin_acc</cstr></value>
+      </comparison>
+      <comparison>
+        <value type="item">:pval:</value>
+        <operator><![CDATA[<=]]></operator>
+        <value><cstr>max_fin_pval</cstr></value>
+      </comparison>
+    </action>
+    <action what="sort" reverse="true">
+      <value type="item">:acc:</value>
+      <value type="item" flip="true">BOTH:len:q</value>
+      <value type="item" flip="true">:diffLengthQs:</value>
+    </action>
+  </actionlist>
+  <actionlist>
+    <name>final_selection</name>
+    <list><name>_final</name></list>
+  </actionlist>
+  <actionlist>
+    <name>partial_selection</name>
+    <list><name>_partial</name></list>
+  </actionlist>
+  <actionlist>
+    <name>prune</name>
+    <action what="applyBulk">
+      <function>getPruned</function>
+    </action>
+  </actionlist>
+  <actionlist>
+    <name>normalize</name>
+    <action what="applyBulk">
+      <function>getNormalized</function>
+    </action>
+  </actionlist>
+  <actionlist>
+    <name>_postprocess</name>
+    <list><name>_final</name></list>
+  </actionlist>
+</root>

@@ -105,4 +105,4 @@ With a settings file "settings.xml", you can run any of the experiments with
 
 python exec_clired.py settings.xml
 
-The settings_and_data folder includes test data (LHS and RHS for left hand side and right hand side data tables) with pre-mined pairs (named _pairs.txt). The files are named according to the datasets used in the paper. Files with no dataset name (fields_rdefs_custom.xml) are used for all experiments. 
+The demo.zip folder includes test data (LHS and RHS for left hand side and right hand side data tables) with pre-mined pairs ( _pairs.txt). The files are named according to the datasets used in the paper. Files with no dataset name (fields_rdefs_custom.xml) are used for all experiments. 

@@ -1,5 +1,3 @@
-The plots for the datasets CMS_{116395} and CMS_{7199} in the "Technical Appendix for Fast Redescription Mining Using Locality-Sensitive Hashing" were by accident made by using the wrong data, and have now been updated in the appendix included in this repository (appendix.pdf). The plots now correctly show that ReReMiBKT finds the same initial pairs as ReReMi and can be used for comparison with Fier_init.
-
 # Fier instructions
 
 This is the code for paper "Fast Redescription Mining Using Locality-Sensitive Hashing". Repository includes code from the ReReMi package available at https://pypi.org/project/python-clired/.

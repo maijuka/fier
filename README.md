@@ -14,12 +14,24 @@ The file used to run the algorithm is called exec_clired.py.
 
 You do not need to edit any of the code files, but to run the algorithm you need to use a settings file to define the data and settings used.
 
+## Running the experiments
+
+With a settings file "settings.xml", you can run any of the experiments with
+
+python exec_clired.py settings.xml
+
+The demo.zip folder includes test data (LHS and RHS for left hand side and right hand side data tables) with pre-mined pairs ( _pairs.txt). The files are named according to the datasets used in the paper. Files with no dataset name (fields_rdefs_custom.xml) are used for all experiments. 
+
+The folder includes 10 settings to run 4 Fier experiments and 6 ReReMi experiments on the MammalsW dataset. Please look at the readme.txt included in the demo folder for more information on what each settings file corresponds to.
+
 ## How to set the input data
+
+The demo folder only includes settings files for one dataset, and one set of parameters for each experiment. Here it is explained how to change the parameters to run different experiments.
 
 The same settings files can be used for any dataset. The dataset used is set with the following parameters 
 
-* LHS_data, insert the file name of the left hand side data
-* RHS_data, same as above but for the right hand side data
+* data_l, insert the file name of the left hand side data
+* data_r, same as above but for the right hand side data
 
 The names of the datasets match the ones in the paper, but make sure you have the correct paths for them.
 
@@ -74,6 +86,10 @@ Following parameters are for all datasets except DentalW and DentalA (their para
 * method_buckets = similar-height
 * nb_buckets = 40
 
+### To run Fier_init to only mine the initial pairs use
+
+* only_pairs = 1
+
 ### For Fier_ext parameters b_h and r_h set (section 3.3 and 3.4)
 
 * lsh_nb_bands_ext = b_h
@@ -96,11 +112,3 @@ If you want to run ReReMi, make sure you don't set
 ### If you want to only mine pairs with ReReMi or ReReMiBKT set
 
 * only_pairs = 1
-
-## Running the experiments
-
-With a settings file "settings.xml", you can run any of the experiments with
-
-python exec_clired.py settings.xml
-
-The demo.zip folder includes test data (LHS and RHS for left hand side and right hand side data tables) with pre-mined pairs ( _pairs.txt). The files are named according to the datasets used in the paper. Files with no dataset name (fields_rdefs_custom.xml) are used for all experiments. 

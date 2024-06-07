@@ -1,6 +1,13 @@
 # Fier instructions
 
-This is the code for paper "Fast Redescription Mining Using Locality-Sensitive Hashing". Repository includes code from the ReReMi package available at https://pypi.org/project/python-clired/.
+This repository contains the implementations for the algorithms in the paper 
+> **Fast Redescription Mining Using Locality-Sensitive Hashing**<br>
+> Maiju Karjalainen, Esther Galbrun and Pauli Miettinen<br>
+> To appear at ECML-PKDD 2024
+
+[![arXiv](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2406.04148)
+
+Repository includes code from the ReReMi package available at https://pypi.org/project/python-clired/.
 
 ## Setting up the environment 
 

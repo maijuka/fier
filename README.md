@@ -5,7 +5,7 @@ This repository contains the implementations for the algorithms in the paper
 > Maiju Karjalainen, Esther Galbrun and Pauli Miettinen<br>
 > To appear at ECML-PKDD 2024
 
-[![arXiv](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2406.04148)
+[![arXiv](https://img.shields.io/badge/arXiv-2406.04148-b31b1b.svg)](https://arxiv.org/abs/2406.04148)
 
 Repository includes code from the ReReMi package available at https://pypi.org/project/python-clired/.
 
